@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const User = ({ user }) => {
 	const { id, name, username, email, website, phone } = user;
+    const navigate  = useNavigate()
     const userDetails =()=>{
-        console.log(id);
+        navigate(`/user/${id}`)
     }
 	return (
 		<div>
