@@ -1,13 +1,20 @@
+import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import About from "./componenets/About/About";
-import Blog from "./componenets/Blog/Blog";
+import Blog from "./componenets/Blogs/Blogs";
 import Home from "./componenets/Home/Home";
 import Notfound from "./componenets/Notfound/Notfound";
 import UserDetails from "./componenets/UserDetails/UserDetails";
 import Layout from "./Layout/Layout";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
 	const router = createBrowserRouter([
 		{
 			path: "/",
@@ -19,6 +26,9 @@ function App() {
         },
         element: <Home></Home> },
 				{ path: "blog",
+        loader: ()=>{
+          return fetch('https://jsonplaceholder.typicode.com/posts')
+        },
         element: <Blog></Blog> },
 				{ path: "about", element: <About></About> },
         {path : "user/:id",
