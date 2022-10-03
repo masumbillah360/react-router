@@ -1,7 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Blog = ({ post }) => {
 	const { id, userId, title, body } = post;
+    const navigate = useNavigate()
+
+    const getAuthor =()=>{
+        navigate(`/user/${userId}`)
+    }
 	return (
 		<div
 			data-aos="flip-up"
@@ -11,8 +17,9 @@ const Blog = ({ post }) => {
 		>
 			<h1>id : {id}</h1>
 			<h1>user id : {userId}</h1>
-			<h1>Title : {title}</h1>
-			<h1>Post : {body}</h1>
+			<h1 className="font-bold pt-2">Title : {title}.</h1>
+			<h1 className="py-3">Post : {body}.</h1>
+            <button onClick={getAuthor} className="btn btn-sm btn-secondary mt-3">Get Author</button>
 		</div>
 	);
 };

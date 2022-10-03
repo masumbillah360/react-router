@@ -5,7 +5,7 @@ const UserDetails = () => {
     const userDetails = useLoaderData()
     const { id, name, username, email, website, phone } = userDetails;
     const navigate = useNavigate()
-    const goBack =()=>{
+    const goHome =()=>{
         navigate('/home')
     }
     return (
@@ -16,7 +16,7 @@ const UserDetails = () => {
             <h1>Phone : {phone}</h1>
             <h1>Email : {email}</h1>
             <h1>website : {website}</h1>
-            <button onClick={goBack} className='btn btn-sm btn-primary w-1/4 mx-auto mt-4'>Go Back</button>
+            <button onClick={goHome} className='btn btn-sm btn-primary w-1/4 mx-auto mt-4'>Go Home</button>
         </div>
     );
 };
