@@ -12,15 +12,19 @@ function App() {
 			path: "/",
 			element: <Layout></Layout>,
 			children: [
-				{ path: "/home", element: <Home></Home> },
-				{ path: "/blog", element: <Blog></Blog> },
-				{ path: "/about", element: <About></About> },
+				{ path: "/home",
+        loader : async()=>{
+          return fetch('https://jsonplaceholder.typicode.com/users');
+        },
+        element: <Home></Home> },
+				{ path: "blog", element: <Blog></Blog> },
+				{ path: "about", element: <About></About> },
 			],
 		},
     {path : "*", element: <Notfound></Notfound>}
 	]);
 	return (
-		<div className="App">
+		<div className="container mx-auto text-center">
 			<RouterProvider router={router}></RouterProvider>
 		</div>
 	);
