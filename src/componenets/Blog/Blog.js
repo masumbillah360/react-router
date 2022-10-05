@@ -13,7 +13,7 @@ const Blog = ({ post }) => {
 			data-aos="flip-up"
 			data-aos-offset="300"
 			data-aos-easing="ease-in-sine"
-			className="border bg-green-200 rounded-lg text-justify p-4"
+			className="border bg-green-200 rounded-lg text-justify p-4 bg-jar"
 		>
 			<h1>id : {id}</h1>
 			<h1>user id : {userId}</h1>
